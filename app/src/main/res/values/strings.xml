@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">自动安装</string>
+    <string name="aby_label">自动安装服务</string>
+    <string name="aby_desc">开启本服务后，在安装应用的过程中会辅助点击相应按钮，实现自动安装和启动应用，省去频繁手动点击。</string>
+    <string name="aby_set">打开系统设置：\n1.在辅助功能(无障碍)中，找到并勾选\"自动安装服务\"；\n2.在安全中，找到并勾选\"未知来源\"。</string>
+    <string name="start">开始</string>
+</resources>
