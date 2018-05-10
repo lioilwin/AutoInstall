@@ -23,9 +23,9 @@ public class AutoInstallUtil {
         if (isSettingOpen(cxt))
             return;
         new AlertDialog.Builder(cxt)
-                .setTitle("请设置")
-                .setMessage("在安全中，找到并勾选\"未知来源\"")
-                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                .setTitle(R.string.unknow_setting_title)
+                .setMessage(R.string.unknow_setting_msg)
+                .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         jumpToSetting(cxt);

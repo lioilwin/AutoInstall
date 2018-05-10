@@ -23,9 +23,9 @@ public class AccessibilityUtil {
         if (isSettingOpen(service, cxt))
             return;
         new AlertDialog.Builder(cxt)
-                .setTitle("请设置")
-                .setMessage("在辅助功能(无障碍)中，找到并勾选\"自动安装服务\"")
-                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                .setTitle(R.string.aby_setting_title)
+                .setMessage(R.string.aby_setting_msg)
+                .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         jumpToSetting(cxt);
