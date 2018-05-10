@@ -54,6 +54,7 @@ public class AutoInstallUtil {
      * @param apkPath APK文件的本地路径
      */
     public static void install(Context cxt, String apkPath) {
+        AccessibilityUtil.wakeUpScreen(cxt); //唤醒屏幕,以便辅助功能模拟用户点击"安装"
         try {
             Intent intent = new Intent(Intent.ACTION_VIEW);
 			// Android高版本安装器不允许直接访问File，需要借助FileProvider(或使用取巧方法：调低targetSdkVersion)

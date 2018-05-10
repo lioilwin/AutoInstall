@@ -2,6 +2,7 @@ package win.lioil.autoInstall;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.EditText;
 
@@ -19,6 +20,6 @@ public class MainActivity extends Activity {
     }
 
     public void start(View view) {
-        AutoInstallUtil.install(this, mEditText.getText().toString());
+        AutoInstallUtil.install(MainActivity.this, mEditText.getText().toString());
     }
 }

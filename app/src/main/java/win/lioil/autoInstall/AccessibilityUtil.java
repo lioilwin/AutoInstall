@@ -1,9 +1,11 @@
 package win.lioil.autoInstall;
 
 import android.app.AlertDialog;
+import android.app.KeyguardManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.PowerManager;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
@@ -73,6 +75,29 @@ public class AccessibilityUtil {
             } catch (Throwable e2) {
                 Log.e(TAG, "jumpToSetting: " + e2.getMessage());
             }
+        }
+    }
+
+    /**
+     * 唤醒点亮和解锁屏幕(60s)
+     */
+    public static void wakeUpScreen(Context context) {
+        try {
+            //唤醒点亮屏幕
+            PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+            if (pm != null && pm.isScreenOn()) {
+                PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.ACQUIRE_CAUSES_WAKEUP | PowerManager.SCREEN_DIM_WAKE_LOCK, "wakeUpScreen");
+                wl.acquire(60000); // 60s后释放锁
+            }
+
+            //解锁屏幕
+            KeyguardManager km = (KeyguardManager) context.getSystemService(Context.KEYGUARD_SERVICE);
+            if (km != null && km.inKeyguardRestrictedInputMode()) {
+                KeyguardManager.KeyguardLock kl = km.newKeyguardLock("unLock");
+                kl.disableKeyguard();
+            }
+        } catch (Throwable e) {
+            Log.e(TAG, "wakeUpScreen: " + e.getMessage());
         }
     }
 }
