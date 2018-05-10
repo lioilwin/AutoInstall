@@ -73,12 +73,12 @@ public class AutoInstallService extends AccessibilityService {
         findTxtClick(rootNode, "继续安装");
         findTxtClick(rootNode, "下一步");
         findTxtClick(rootNode, "打开");
+        // 回收节点实例来重用
+        eventNode.recycle();
+        rootNode.recycle();
     }
 
-    @Override
-    public void onInterrupt() {
-    }
-
+	// 查找安装,并模拟点击(findAccessibilityNodeInfosByText判断逻辑是contains而非equals)
     private void findTxtClick(AccessibilityNodeInfo nodeInfo, String txt) {
         List<AccessibilityNodeInfo> nodes = nodeInfo.findAccessibilityNodeInfosByText(txt);
         if (nodes == null || nodes.isEmpty())
@@ -102,5 +102,9 @@ public class AutoInstallService extends AccessibilityService {
     private boolean isNotFind(AccessibilityNodeInfo rootNode, String txt) {
         List<AccessibilityNodeInfo> nodes = rootNode.findAccessibilityNodeInfosByText(txt);
         return nodes == null || nodes.isEmpty();
+    }
+	
+	@Override
+    public void onInterrupt() {
     }
 }

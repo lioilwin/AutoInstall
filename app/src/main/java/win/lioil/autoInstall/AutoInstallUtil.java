@@ -10,6 +10,9 @@ import android.util.Log;
 
 import java.io.File;
 
+/**
+ * 安装相关工具
+ */
 public class AutoInstallUtil {
     private static final String TAG = AutoInstallUtil.class.getSimpleName();
 
@@ -53,6 +56,7 @@ public class AutoInstallUtil {
     public static void install(Context cxt, String apkPath) {
         try {
             Intent intent = new Intent(Intent.ACTION_VIEW);
+			// Android高版本安装器不允许直接访问File，需要借助FileProvider(或使用取巧方法：调低targetSdkVersion)
             intent.setDataAndType(Uri.fromFile(new File(apkPath)), "application/vnd.android.package-archive");
             cxt.startActivity(intent);
         } catch (Throwable e) {

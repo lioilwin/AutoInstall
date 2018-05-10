@@ -17,18 +17,14 @@
             </intent-filter>
         </activity>
 
-        <!--android:process 把该service设在单独进程中(可选),
-            进程名以[冒号:]开头，是本应用的私有进程，其它应用无法访问-->
         <service
             android:name=".AutoInstallService"
-            android:enabled="true"
             android:label="@string/aby_label"
-            android:process=":install"
-            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
+            android:process=":install">
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService" />
-            </intent-filter>
-            <!--在xml文件配置辅助功能，也可在onServiceConnected中动态配置-->
+            </intent-filter> 
             <meta-data
                 android:name="android.accessibilityservice"
                 android:resource="@xml/accessibility_config" />

@@ -9,7 +9,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 /**
- * 辅助功能相关工具类
+ * 辅助功能/无障碍相关工具
  */
 public class AccessibilityUtil {
     private static final String TAG = AccessibilityUtil.class.getSimpleName();

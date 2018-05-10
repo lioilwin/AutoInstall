@@ -6,12 +6,3 @@
     android:canRetrieveWindowContent="true"
     android:description="@string/aby_desc"
     android:notificationTimeout="100"/>
-    <!--android:packageNames="com.android.packageinstaller" 国内有不少手机都是自定义安装界面，packageNames不固定-->
-
-    <!--android:description ：辅助功能描述，描述该辅助功能用来干嘛的
-    android:packageNames ：指定辅助功能监听的包名，不指定表示监听所有应用
-    android:accessibilityEventTypes：辅助功能处理事件类型，一般配置为typeAllMask表示接收所有事件
-    android:accessibilityFlags：辅助功能查找截点方式，一般配置为flagDefault默认方式。
-    android:accessibilityFeedbackType：操作相应按钮以后辅助功能给用户的反馈类型，包括声音，震动等。
-    android:notificationTimeout：相应时间设置
-    android:canRetrieveWindowContent：是否允许辅助功能获得窗口的节点信息，为了能正常实用辅助功能，请务必保持该项配置为true -->

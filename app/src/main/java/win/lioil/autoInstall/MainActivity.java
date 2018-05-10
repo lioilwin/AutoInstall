@@ -15,13 +15,10 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         mEditText = findViewById(R.id.apk_path);
         AutoInstallUtil.checkSetting(this); //"未知来源"设置
-//        AccessibilityUtil.checkSetting(MainActivity.this, AutoInstallService.class); //"辅助功能"设置
+        AccessibilityUtil.checkSetting(MainActivity.this, AutoInstallService.class); //"辅助功能"设置
     }
 
     public void start(View view) {
         AutoInstallUtil.install(this, mEditText.getText().toString());
     }
-
-
-
 }
