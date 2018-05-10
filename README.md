@@ -1,4 +1,27 @@
-## AutoInstall 自动安装基本步骤
+参考：
+http://www.infoq.com/cn/articles/android-accessibility-installing
+https://developer.android.com/guide/topics/ui/accessibility/services
+https://developer.android.com/training/accessibility/service
+
+## 一.Android Accessibility 简介
+	对于那些失明或低视力，色盲，耳聋或听力受损，以及运动技能受限的用户，
+	Android提供了Accessibility(辅助功能/无障碍)更加简单地操作设备，
+	包括文字转语音、触觉反馈、手势操作、轨迹球和手柄操作等。
+	
+	在Android 4.0以前，Accessibility功能单一，仅能过单向获取窗口信息(获取输入框内容)；
+	在Android 4.1以后，Accessibility增加了与窗口元素的双向交互，可以操作窗口元素(点击按钮)。
+
+	近期项目需要在小米/华为手机上自动安装/升级APP(不能root)，市面上大部分的应用市场APP都通过辅助功能实现免root自动安装，
+	于是想借鉴一下方案，试用了5个APP：豌豆荚，360手机助手，百度手机助手，腾讯应用宝，应用汇。
+	腾讯应用宝竟然没有实现免root自动安装，必须要root才能自动安装，难道是我没发现设置按钮，找到的麻烦通知一声。。。
+	在华为上这几个自动安装都是失效的，在小米上只有豌豆荚(要单独下载插件APP，估计是对小米单独适配了)。
+	
+	自动安装原理(Accessibility)：
+		启动"x.x.packageinstaller"系统安装界面，获取"安装"按钮，然后模拟用户点击，直到安装结束。	
+	技术实现看起来非常简单，麻烦在于国内千奇百怪Android系统安装界面，现在只能自己动手适配项目需要的几台手机。。。
+	
+## 二.自动安装的基本步骤
+完整源码：https://github.com/lifegh/AutoInstall
 	
 ### 1.manifest添加辅助服务, res/xml配置辅助功能
 	在AndroidManifest.xml中
@@ -240,4 +263,9 @@
 				Log.e(TAG, "install: " + e.getMessage());
 			}
 		}
-	}
+	}	
+
+简书: https://www.jianshu.com/p/04ebe2641290   
+CSDN: https://blog.csdn.net/qq_32115439/article/details/80261568   
+GitHub博客: http://lioil.win/2018/05/09/Android-Accessibility.html   
+Coding博客: http://c.lioil.win/2018/05/09/Android-Accessibility.html
