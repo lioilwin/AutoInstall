@@ -14,7 +14,7 @@
         android:id="@+id/apk_path"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="/sdcard/apk/1.apk" />
+        android:text="/sdcard/1.apk" />
 
     <Button
         android:layout_width="wrap_content"
